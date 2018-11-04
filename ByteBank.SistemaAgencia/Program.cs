@@ -13,17 +13,25 @@ namespace ByteBank.SistemaAgencia
         static void Main(string[] args)
         {
 
-            int[] idades = new int[5] { 15,28,30,50,45};
+            ListaDeContaCorrente listaContaCorrente = new ListaDeContaCorrente();
+            listaContaCorrente.Adicionar(new ContaCorrente(666,222));
+            listaContaCorrente.Adicionar(new ContaCorrente(667, 223));
+            
+            Console.WriteLine();
+            Console.ReadLine();
+        }
+
+
+        public static void Somar()
+        {
+            int[] idades = new int[5] { 15, 28, 30, 50, 45 };
 
             int acumulador = 0;
             for (int i = 0; i < idades.Length; i++)
             {
                 acumulador += idades[i];
             }
-           int media = acumulador / idades.Length;
-
-            Console.WriteLine(media);
-            Console.ReadLine();
+            int media = acumulador / idades.Length;
         }
     }
 }
