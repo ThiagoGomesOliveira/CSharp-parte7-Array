@@ -11,7 +11,7 @@ namespace ByteBank.Modelos
         private ContaCorrente[] _itens;
         private int _proximaPosicao;
 
-        public ListaDeContaCorrente( int capacidadeInicial = 5)
+        public ListaDeContaCorrente(int capacidadeInicial = 5)
         {
             _itens = new ContaCorrente[capacidadeInicial];
             _proximaPosicao = 0;
@@ -48,6 +48,26 @@ namespace ByteBank.Modelos
 
         }
 
+        public void Remover(ContaCorrente conta)
+        {
+            int indiceItem = -1;
+            for (int i = 0; i < _proximaPosicao; i++)
+            {
+                ContaCorrente itemAtual = _itens[i];
+                if (itemAtual.Equals(conta))
+                {
+                    indiceItem = i;
+                    break;
+                }
+            }
+            for (int i = indiceItem; i < _proximaPosicao-1; i++)
+            {
+                _itens[i] = _itens[i + 1];
+            }
+            _proximaPosicao--;
+            _itens[_proximaPosicao] = null;
+
+        }
 
     }
 }

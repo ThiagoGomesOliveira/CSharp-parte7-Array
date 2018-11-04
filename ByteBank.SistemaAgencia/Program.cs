@@ -12,10 +12,12 @@ namespace ByteBank.SistemaAgencia
     {
         static void Main(string[] args)
         {
-
+            ContaCorrente contaThiago = new ContaCorrente(11111, 11111);
             ListaDeContaCorrente listaContaCorrente = new ListaDeContaCorrente();
             listaContaCorrente.Adicionar(new ContaCorrente(666,222));
             listaContaCorrente.Adicionar(new ContaCorrente(667, 223));
+            listaContaCorrente.Adicionar(contaThiago);
+            listaContaCorrente.Remover(contaThiago);
             
             Console.WriteLine();
             Console.ReadLine();
