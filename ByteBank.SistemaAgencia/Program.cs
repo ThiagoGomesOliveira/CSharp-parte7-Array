@@ -12,6 +12,25 @@ namespace ByteBank.SistemaAgencia
     {
         static void Main(string[] args)
         {
+            Lista<int> idades = new Lista<int>();
+
+            idades.AdicionarVarios(63, 15, 21, 50);
+            idades.Remover(15);
+
+            Lista<string> cursos = new Lista<string>();
+            cursos.AdicionarVarios("C# Parte 1", "C# Parte 2", "C# Parte 3");
+
+            Lista<ContaCorrente> contas = new Lista<ContaCorrente>();
+            contas.AdicionarVarios(new ContaCorrente(124, 54354), new ContaCorrente(201, 44354));
+
+
+            Console.WriteLine();
+            Console.ReadLine();
+        }
+
+
+        static void TestarIndexadores()
+        {
             ListaDeContaCorrente lista = new ListaDeContaCorrente();
 
             lista.Adicionar(new ContaCorrente(100, 40010));
@@ -32,11 +51,8 @@ namespace ByteBank.SistemaAgencia
                 Console.WriteLine($"{conta.Agencia}/{conta.Numero}");
             }
 
-
-
-            Console.WriteLine();
-            Console.ReadLine();
         }
+
 
         public static void TestarAdcionar()
         {
