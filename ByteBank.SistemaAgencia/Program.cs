@@ -12,17 +12,41 @@ namespace ByteBank.SistemaAgencia
     {
         static void Main(string[] args)
         {
-            ContaCorrente contaThiago = new ContaCorrente(11111, 11111);
-            ListaDeContaCorrente listaContaCorrente = new ListaDeContaCorrente();
-            listaContaCorrente.Adicionar(new ContaCorrente(666,222));
-            listaContaCorrente.Adicionar(new ContaCorrente(667, 223));
-            listaContaCorrente.Adicionar(contaThiago);
-            listaContaCorrente.Remover(contaThiago);
-            
+            ListaDeContaCorrente lista = new ListaDeContaCorrente();
+
+            lista.Adicionar(new ContaCorrente(100, 40010));
+            lista.Adicionar(new ContaCorrente(101, 40011));
+            lista.Adicionar(new ContaCorrente(102, 40012));
+            lista.Adicionar(new ContaCorrente(103, 40013));
+
+            //ContaCorrente conta = lista.GetItemNoIndice(2);
+            //Console.WriteLine($"{conta.Agencia}/{conta.Numero}");
+            lista.AdicionarVarios(
+                           new ContaCorrente(100, 40010),
+                           new ContaCorrente(101, 40011)
+                                 );
+
+            for (int i = 0; i < lista.Tamanho; i++)
+            {
+                ContaCorrente conta = lista[i];
+                Console.WriteLine($"{conta.Agencia}/{conta.Numero}");
+            }
+
+
+
             Console.WriteLine();
             Console.ReadLine();
         }
 
+        public static void TestarAdcionar()
+        {
+            ContaCorrente contaThiago = new ContaCorrente(11111, 11111);
+            ListaDeContaCorrente listaContaCorrente = new ListaDeContaCorrente();
+            listaContaCorrente.Adicionar(new ContaCorrente(666, 222));
+            listaContaCorrente.Adicionar(new ContaCorrente(667, 223));
+            listaContaCorrente.Adicionar(contaThiago);
+            listaContaCorrente.Remover(contaThiago);
+        }
 
         public static void Somar()
         {

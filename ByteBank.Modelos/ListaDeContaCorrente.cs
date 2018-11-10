@@ -10,11 +10,45 @@ namespace ByteBank.Modelos
     {
         private ContaCorrente[] _itens;
         private int _proximaPosicao;
+        public int Tamanho
+        {
+            get
+            {
+                return _proximaPosicao;
+            }
+        }
+
+        public ContaCorrente this[int indice]
+        {
+            get
+            {
+                return GetItemNoIndice(indice);
+            }
+        }
+
+
+        public void AdicionarVarios(params ContaCorrente[] contaCorrente)
+        {
+            foreach (ContaCorrente conta in contaCorrente)
+            {
+                Adicionar(conta);
+            }
+        }
 
         public ListaDeContaCorrente(int capacidadeInicial = 5)
         {
             _itens = new ContaCorrente[capacidadeInicial];
             _proximaPosicao = 0;
+        }
+
+
+        public ContaCorrente GetItemNoIndice(int indice)
+        {
+            if (indice < 0 || indice >= _proximaPosicao)
+            {
+                throw new ArgumentOutOfRangeException(nameof(indice));
+            }
+            return _itens[indice];
         }
 
 
@@ -60,7 +94,7 @@ namespace ByteBank.Modelos
                     break;
                 }
             }
-            for (int i = indiceItem; i < _proximaPosicao-1; i++)
+            for (int i = indiceItem; i < _proximaPosicao - 1; i++)
             {
                 _itens[i] = _itens[i + 1];
             }
